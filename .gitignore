@@ -183,3 +183,6 @@ terraform.log
 *.tfvars
 *.tfvars.*
 
+# Ignore venv directory
+venv/
+
