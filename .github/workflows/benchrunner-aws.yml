@@ -1,7 +1,7 @@
 name: Deploy benchrunner to AWS
 
 on:
-  workflow_dispatch: {}
+  [push]
 
 jobs:
   deploy:
