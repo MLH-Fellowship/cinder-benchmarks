@@ -79,10 +79,15 @@ resource "aws_security_group" "ingress_all" {
   }
 }
 
+resource "aws_key_pair" "benchrun_keypair" {
+  key_name   = "bench-runner"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+
 resource "aws_instance" "bench_runner" {
   ami                    = "ami-830c94e3"
   instance_type          = "t2.micro"
-  key_name               = "bench-runner"
+  key_name               = aws_key_pair.benchrun_keypair.key_name
   vpc_security_group_ids = ["${aws_security_group.ingress_all.id}"]
   subnet_id              = aws_subnet.subnet1.id
 
