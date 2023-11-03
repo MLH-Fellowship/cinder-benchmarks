@@ -85,6 +85,7 @@ resource "aws_instance" "bench_runner" {
   key_name               = "bench-runner"
   vpc_security_group_ids = ["${aws_security_group.ingress_all.id}"]
   subnet_id              = aws_subnet.subnet1.id
+  user_data              = file("init.sh")
 
   tags = {
     Name = "BenchmarkingEC2Runner"
