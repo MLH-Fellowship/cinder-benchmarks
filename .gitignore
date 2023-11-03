@@ -168,3 +168,20 @@ pyembed_includes
 .cache/
 build_cinderx_venv/
 CinderX/build/
+
+# Ignore Terraform state files, directories, and logs
+*.tfstate
+*.tfstate.*
+*.terraform
+*.terraform.*
+.terraform/
+terraform.log
+
+# Ignore sensitive or auto-generated files
+*.pem
+*.key
+*.tfvars
+*.tfvars.*
+
+# Ignore venv directory
+venv/
